@@ -15,16 +15,31 @@ In particular, ARM64 (aarch64) has been documented separately for this purpose b
 
 1. lstpu (Displays a list of TPU equipment currently connected.)
 ```sh
-$ git clone --recursive https://github.com/Piorosen/CMake-CoralTPU-Tutorial
-$ cd CMake-CoralTPU-Tutorial
+# 우분투 기준으로 필수 프로그램
+# 현재 보드에 연결된, TPU 장비를 검색하는 소프트웨어 
+$ sudo apt install ninja cmake gcc g++ make
+$ git clone --recursive https://github.com/kim-jinuk/coral_tutorial.git
+$ cd coral_tutorial
+$ make lstpu && cd build
+$ ./lstpu
+
+# Model 빌드 
+$ make build && cd build
+$ ./model test.tflite label.txt 0.5
+```
+
+2. lstpu (Displays a list of TPU equipment currently connected.)
+```sh
+$ git clone --recursive https://github.com/kim-jinuk/coral_tutorial.git
+$ cd coral_tutorial
 $ make lstpu
 $ ./build/chacha
 ```
 
-2. your software build
+3. your software build
 ```sh
-$ git clone --recursive https://github.com/Piorosen/CMake-CoralTPU-Tutorial
-$ cd CMake-CoralTPU-Tutorial
+$ git clone --recursive https://github.com/kim-jinuk/coral_tutorial.git
+$ cd coral_tutorial
 $ make build # make
 $ ./build/chacha
 ```
